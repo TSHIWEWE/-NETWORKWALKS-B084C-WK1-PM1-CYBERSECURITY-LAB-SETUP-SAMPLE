@@ -30,7 +30,7 @@ Give a Kali Linux VM a static IP address on a VirtualBox **NAT Network** (`10.0.
 - IPv4 Prefix: `10.0.0.0/24`
 - Enable DHCP: ✔
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%20123133.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%122222.png)
 
 ## Step 2: Attach the Kali VM to the NAT Network
 
@@ -44,7 +44,7 @@ With the VM **powered off**: **select Kali linux → Settings → Network → Ad
 
 Click **OK**.
 
-![Attaching Adapter 1 to NatNetwork](images/02b-attach-adapter-natnetwork.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%124057.png)
 
 > ⚠️ "NAT" and "NAT Network" are different options in the *Attached to* list. Choose **NAT Network**. Picking plain NAT caused the problem in Step 4.
 
@@ -56,7 +56,7 @@ In Kali: **network icon → Edit Connections → Wired connection 1 → IPv4 Set
 - Address: `10.0.0.2` · Netmask: `24` · Gateway: `10.0.0.1`
 - DNS servers: `8.8.8.8`
 
-![Kali static IPv4 settings](images/03-kali-static-ipv4.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%123133.png)
 
 Apply the change and restart the connection:
 
@@ -66,7 +66,7 @@ sudo nmcli connection down "Wired connection 1"
 sudo nmcli connection up "Wired connection 1"
 ```
 
-![Restarting the connection with nmcli](images/04-nmcli-restart.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%123133.png)
 
 ## Step 4: Problem: No Internet
 
@@ -78,13 +78,13 @@ ping 8.8.8.8
 # 100% packet loss
 ```
 
-![Ping failing](images/05-ping-unreachable.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%123133.png)
 
 ### Root cause
 
 The VM's network adapter was attached to **NAT**, not **NAT Network**.
 
-![Adapter attached to NAT (wrong)](images/01-adapter-wrong-nat.png)
+
 
 These are two different VirtualBox modes:
 
@@ -105,7 +105,7 @@ Step 2 had been missed, so the adapter was still on plain NAT. To fix it:
    - Name: **NatNetwork**
 3. Click OK and start the VM.
 
-![Adapter attached to NAT Network (fixed)](images/06-adapter-fixed-natnetwork.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%124057.png)
 
 ## Step 6: Verify
 
@@ -116,8 +116,7 @@ ping -c 4 8.8.8.8    # internet
 ping -c 4 google.com # DNS
 ```
 
-<!-- Add a screenshot of the successful pings here: -->
-<!-- ![Successful ping](images/07-ping-success.png) -->
+![Kali static IPv4 settings](Screenshot%202026-10-30%124824.png)
 
 If the IP works but domain names don't resolve, change DNS to `10.0.0.1`.
 If `10.0.0.2` still has issues, try another address such as `10.0.0.10`.
@@ -127,6 +126,10 @@ If `10.0.0.2` still has issues, try another address such as `10.0.0.10`.
 With the VM powered off: **select Kali linux → Snapshots tab → Take**, then name it `Clean install – network working`.
 
 For a full backup that doesn't depend on the VM's own files, use **Clone → Full clone** or **File → Export Appliance (.ova)**.
+
+![Kali static IPv4 settings](Screenshot%202026-10-30%125201.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%125412.png)
+![Kali static IPv4 settings](Screenshot%202026-10-30%125520.png)
 
 ---
 
