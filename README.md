@@ -44,7 +44,7 @@ With the VM **powered off**: **select Kali linux → Settings → Network → Ad
 
 Click **OK**.
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%124057.png)
+![Successful ping](Screenshot%202026-10-30%20124057.png)
 
 > ⚠️ "NAT" and "NAT Network" are different options in the *Attached to* list. Choose **NAT Network**. Picking plain NAT caused the problem in Step 4.
 
@@ -78,7 +78,7 @@ ping 8.8.8.8
 # 100% packet loss
 ```
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%123133.png)
+![Successful ping](Screenshot%202026-10-30%20123133.png)
 
 ### Root cause
 
@@ -105,7 +105,7 @@ Step 2 had been missed, so the adapter was still on plain NAT. To fix it:
    - Name: **NatNetwork**
 3. Click OK and start the VM.
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%124057.png)
+![Successful ping](Screenshot%202026-10-30%20124057.png)
 
 ## Step 6: Verify
 
@@ -116,7 +116,7 @@ ping -c 4 8.8.8.8    # internet
 ping -c 4 google.com # DNS
 ```
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%124824.png)
+![Successful ping](Screenshot%202026-10-30%20124824.png)
 
 If the IP works but domain names don't resolve, change DNS to `10.0.0.1`.
 If `10.0.0.2` still has issues, try another address such as `10.0.0.10`.
