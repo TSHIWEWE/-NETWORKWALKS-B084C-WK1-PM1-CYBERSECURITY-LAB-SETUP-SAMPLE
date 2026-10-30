@@ -56,7 +56,7 @@ In Kali: **network icon → Edit Connections → Wired connection 1 → IPv4 Set
 - Address: `10.0.0.2` · Netmask: `24` · Gateway: `10.0.0.1`
 - DNS servers: `8.8.8.8`
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%123133.png)
+![Successful ping](Screenshot%202026-10-30%20123133.png)
 
 Apply the change and restart the connection:
 
@@ -77,8 +77,8 @@ ping 8.8.8.8
 # From 10.0.0.2 icmp_seq=1 Destination Host Unreachable
 # 100% packet loss
 ```
+![Successful ping](Screenshot%202026-10-30%20123759.png)
 
-![Successful ping](Screenshot%202026-10-30%20123133.png)
 
 ### Root cause
 
