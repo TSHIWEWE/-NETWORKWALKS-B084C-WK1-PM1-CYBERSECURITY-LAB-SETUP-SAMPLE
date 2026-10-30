@@ -127,9 +127,9 @@ With the VM powered off: **select Kali linux → Snapshots tab → Take**, then 
 
 For a full backup that doesn't depend on the VM's own files, use **Clone → Full clone** or **File → Export Appliance (.ova)**.
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%125201.png)
-![Kali static IPv4 settings](Screenshot%202026-10-30%125412.png)
-![Kali static IPv4 settings](Screenshot%202026-10-30%125520.png)
+![Successful ping](Screenshot%202026-10-30%20125201.png)
+![Successful ping](Screenshot%202026-10-30%201254412.png)
+![Successful ping](Screenshot%202026-10-30%20125520.png)
 
 ---
 
