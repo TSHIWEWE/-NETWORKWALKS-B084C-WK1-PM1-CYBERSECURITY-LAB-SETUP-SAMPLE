@@ -30,7 +30,7 @@ Give a Kali Linux VM a static IP address on a VirtualBox **NAT Network** (`10.0.
 - IPv4 Prefix: `10.0.0.0/24`
 - Enable DHCP: ✔
 
-![Kali static IPv4 settings](Screenshot%202026-10-30%122222.png)
+![Successful ping](Screenshot%202026-10-30%20122222.png)
 
 ## Step 2: Attach the Kali VM to the NAT Network
 
